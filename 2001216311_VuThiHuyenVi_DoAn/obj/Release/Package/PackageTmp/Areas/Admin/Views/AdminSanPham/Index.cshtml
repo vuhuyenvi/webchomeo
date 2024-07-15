@@ -1,0 +1,61 @@
+﻿@model List<_2001216311_VuThiHuyenVi_DoAn.Models.SanPhamm>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f4b13d;
+        border-right: 1px solid #ddd;
+    }
+
+    tr:hover {
+        background-color: #f7f0ae;
+    }
+    h3 a {
+        color: #007bff; /* Màu chữ mặc định */
+        transition: color 0.3s ease; /* Hiệu ứng chuyển đổi màu chữ trong 0.3 giây */
+    }
+
+        h3 a:hover {
+            color: #ffd800; /* Màu chữ khi di chuột qua (màu vàng) */
+        }
+</style>
+<h3><a href="/Admin/AdminSanPham/Create"><u>Thêm sản phẩm</u></a></h3>
+<table class="table">
+    <tr>
+        <th>Số thứ tự</th>
+        <th>Thương hiệu</th>
+        <th>Ảnh sản phẩm</th>
+        <th>Tên sản phẩm</th>
+        <th>Đơn giá cũ</th>
+        <th>Đơn giá mới</th>
+        <th>Thao tác</th>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.IdSP</td>
+            <td>@item.ThuongHieu.NameTH</td>
+            <td style="max-width:50px; max-height:50px;"><img src="@item.HinhAnh"/></td>
+            <td>@item.NameSP</td>
+            <td>@item.GiaCu</td>
+            <td>@item.GiaMoi</td>
+            <td><a href="/Admin/AdminSanPham/Edit/@item.IdSP"><u style="color: #007bff">Sửa</u></a>  |  <a href="/Admin/AdminSanPham/Delete/@item.IdSP"><u style="color: #007bff">Xóa</u></a></td>
+        </tr>
+         }
+    </table>
+

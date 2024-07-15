@@ -1,0 +1,111 @@
+﻿@model _2001216311_VuThiHuyenVi_DoAn.Models.SanPhamm
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+@*<link href="~/Css/bootstrap9c74.css" rel="stylesheet" />
+    <link href="~/Css/quick.css" rel="stylesheet" />
+    <link href="~/Css/main9c74.css" rel="stylesheet" />
+
+    <div id="popup3" class="popup" style="display: block;">
+        <span class="close-button" onclick="dongPopup3()"><a href="/SanPham/Index">✖</a></span>
+        <div class="product3" style="border: 1px solid #E0E0E0;">
+            <img src="https://bizweb.dktcdn.net/thumb/large/100/432/370/products/sua-bot-cho-cho-dr-kyan-predogen-anh.jpg" alt="1" class="mainpicture3">
+            <div class="colors3" style="margin-left: 50px">
+                <img src="https://bizweb.dktcdn.net/thumb/large/100/432/370/products/sua-bot-cho-cho-dr-kyan-predogen-anh.jpg" alt="" style="cursor: pointer">
+                <img src="https://bizweb.dktcdn.net/thumb/large/100/432/370/products/41.png" alt="" style="cursor: pointer">
+                <img src="https://bizweb.dktcdn.net/thumb/large/100/432/370/products/42.png" alt="" style="cursor: pointer">
+                <img src="https://bizweb.dktcdn.net/thumb/large/100/432/370/products/43.png" alt="" style="cursor: pointer">
+            </div>
+        </div>
+        <div class="thongtin_khung" style="margin-left: 460px; margin-top: -510px; font-size: 20px">
+            <h3>@Model.NameSP</h3>
+            <div class="price-box" style="font-size: 30px; margin-left: -90px">
+                @Model.GiaCu
+                <span class="compare-price">150.000₫</span>
+            </div>
+            <br>
+            <hr class="dotted">
+            <span>Thông tin sản phẩm đang cập nhật</span>
+            <button onclick="themvaogiohang(this)" type="submit" class="btn_cool btn btn_base fix_add_to_cart ajax_addtocart btn_add_cart btn-cart add_to_cart add_to_cart_detail">
+                <span class="btn-content text_1">Thêm vào sản phẩm</span>
+            </button>
+        </div>
+        <script>
+            var colorsList = document.querySelectorAll(".product3>.colors3>img");
+            for (var i = 0; i < colorsList.length; i++) {
+                colorsList[i].onmouseover = function () {
+                    var mainImg = document.querySelector(".product3>.mainpicture3");
+                    mainImg.src = this.src;
+                }
+            }
+        </script>
+    </div>*@
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        background-color:#f7f0ae;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f4b13d;
+        border-right: 1px solid #ddd;
+    }
+
+    tr:hover {
+        background-color: #f7f0ae;
+    }
+
+    h3 a {
+        color: #007bff; /* Màu chữ mặc định */
+        transition: color 0.3s ease; /* Hiệu ứng chuyển đổi màu chữ trong 0.3 giây */
+    }
+
+        h3 a:hover {
+            color: #ffd800; /* Màu chữ khi di chuột qua (màu vàng) */
+        }
+</style>
+<div class="BACKGROUD">
+    <ul class="breadcrumb">
+        <li class="home">
+            <a href="/"><span>Trang chủ</span></a>
+            <span class="mr_lr">&nbsp;/&nbsp;</span>
+        </li>
+        <li><strong><span style="color: #FFAB00">Sản phẩm</span></strong></li>
+    </ul>
+    
+    <h3>Thông tin sản phẩm</h3>
+    <table class="table">
+        <tr>
+            <th>Số thứ tự</th>
+            <th>Thương hiệu</th>
+            <th>Ảnh sản phẩm</th>
+            <th>Tên sản phẩm</th>
+            <th>Đơn giá cũ</th>
+            <th>Đơn giá mới</th>
+            <th>Thao tác</th>
+        </tr>
+
+        <tr>
+            <td>@Model.IdSP</td>
+            <td>@Model.ThuongHieu.NameTH</td>
+            <td style="max-width:50px; max-height:50px;"><img src="@Model.HinhAnh" /></td>
+            <td>@Model.NameSP</td>
+            <td>@Model.GiaCu</td>
+            <td>@Model.GiaMoi</td>
+            <td><a href="/Cart/Add/Index"><u style="color: #007bff">Mua ngay</u></a>  |  <a href="/SanPham/Index"><u style="color: #007bff">Quay lại</u></a></td>
+
+        </tr>
+        }
+
+    </table>

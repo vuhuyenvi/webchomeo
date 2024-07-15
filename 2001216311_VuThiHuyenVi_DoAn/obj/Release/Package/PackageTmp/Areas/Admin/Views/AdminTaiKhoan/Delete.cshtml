@@ -1,0 +1,76 @@
+﻿@model _2001216311_VuThiHuyenVi_DoAn.Models.User
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        border-right: 1px solid #ddd;
+    }
+
+    form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #495057;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        box-sizing: border-box;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        background-color: #f8f9fa;
+        color: #495057;
+        margin-bottom: 10px;
+    }
+
+    button {
+        background-color: #ffd800;
+        color: #000000;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+</style>
+<h2>Delete</h2>
+<form action="/Admin/AdminTaiKhoan/Delete/@Model.UserId" method="post">
+    <input type="hidden" name="UserId" value="@Model.UserId" />
+    <table class="table">
+        <tr>
+            <th>Tên tài khoản</th>
+            <th>Email</th>
+        </tr>
+        <tr>
+            <td>@Model.UserName</td>
+            <td>@Model.EmailAddress</td>
+        </tr>
+    </table>
+    <button type="submit" class="btn btn-primary">Xóa</button>
+    <button class="btn btn-primary"><a href="/Admin/AdminTaiKhoan/Index">Thoát</a></button>
+</form>

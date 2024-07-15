@@ -1,0 +1,60 @@
+﻿@model List<_2001216311_VuThiHuyenVi_DoAn.Models.User>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f4b13d;
+        border-right: 1px solid #ddd;
+    }
+
+    tr:hover {
+        background-color: #f7f0ae;
+    }
+
+    h3 a {
+        color: #007bff; /* Màu chữ mặc định */
+        transition: color 0.3s ease; /* Hiệu ứng chuyển đổi màu chữ trong 0.3 giây */
+    }
+
+        h3 a:hover {
+            color: #ffd800; /* Màu chữ khi di chuột qua (màu vàng) */
+        }
+</style>
+<h3><a href="/Admin/AdminTaiKhoan/Create"><u>Thêm tài khoản</u></a></h3>
+<table class="table">
+    <tr>
+        <th>Số thứ tự</th>
+        <th>Tên đăng nhập</th>
+        <th>Mật khẩu</th>
+        <th>Email</th>
+        <th>Phân quyền</th>
+        <th>Thao tác</th>
+        @foreach (var item in Model)
+        {
+<tr>
+            <td>@item.UserId</td>
+            <td>@item.UserName</td>
+            <td>@item.Password</td>
+            <td>@item.EmailAddress</td>
+            <td>@item.Role</td>
+            <td><a href="/Admin/AdminTaiKhoan/Edit/@item.UserId"><u style="color: #007bff">Sửa</u></a>  |  <a href="/Admin/AdminTaiKhoan/Delete/@item.UserId"><u style="color: #007bff">Xóa</u></a></td>
+        </tr>
+    }
+    </table>
+
